@@ -1,181 +1,182 @@
-// index.js
+
+// ⭐ TEJAS — SERVICES YOU OFFER
 export const servicesData = [
   {
-    title: "FullStack Development",
+    title: "Full-Stack Development",
     description:
-      "Your business deserves a fast, secure, and future-proof digital foundation. I develop custom web apps with clean architecture, optimized databases, and seamless integrations—ensuring reliability at every layer.",
+      "I build fast, scalable, and modern full-stack applications using MERN, Next.js, Bun.js, and secure backend architectures.",
     items: [
       {
+        title: "Frontend Development",
+        description: "(React, Next.js, Tailwind, shadcn UI, TypeScript)",
+      },
+      {
         title: "Backend Engineering",
-        description: "(REST/GraphQL APIs, Microservices, Auth Systems)",
+        description: "(Node.js, Express, Bun.js, REST APIs, Authentication)",
       },
       {
-        title: "Frontend Excellence",
-        description: "(React, Vue, TypeScript, Interactive UI/UX)",
-      },
-      {
-        title: "Database Design",
-        description: "(SQL/NoSQL Optimization, Scalable Structures)",
+        title: "Database Systems",
+        description: "(MongoDB, Query Optimization, Schema Design)",
       },
     ],
   },
   {
-    title: "DevOps & Cloud Solutions",
+    title: "DevOps & Deployment",
     description:
-      "Deploying software shouldn't be a gamble. I automate infrastructure, enforce security, and leverage cloud platforms (AWS/Azure) to keep your app running smoothly—24/7, at any scale.",
+      "I deploy high-performance applications with CI/CD, containerization, and cloud hosting.",
     items: [
       {
         title: "CI/CD Pipelines",
-        description: "(GitHub Actions, Docker, Kubernetes)",
+        description: "(GitHub Actions, Docker, Vercel, Netlify)",
       },
       {
-        title: "Server Management ",
-        description: "(Linux, Nginx, Load Balancing)",
+        title: "Server & Infra",
+        description: "(Linux, Nginx, Performance Optimization)",
       },
       {
-        title: "Performance Tuning",
-        description: "(Caching, Compression, Lighthouse 90+ Scores)",
+        title: "Monitoring",
+        description: "(Logs, Analytics, Lighthouse 90+ Performance Tuning)",
       },
     ],
   },
   {
-    title: "Security & Optimization",
+    title: "AI & Automation",
     description:
-      "Slow or hacked apps destroy trust. I harden security (XSS/SQLI protection, OAuth) and optimize bottlenecks so your app stays fast, safe, and scalable as you grow.",
+      "I integrate AI models like Gemini, ElevenLabs, and voice agents into production-ready systems.",
     items: [
       {
-        title: "Code Audits",
-        description: "(Refactoring, Tech Debt Cleanup)",
+        title: "AI Voice Integrations",
+        description: "(ElevenLabs, Twilio AI, Voice Agents)",
       },
       {
-        title: "Pen Testing",
-        description: "(Vulnerability Assessments)",
+        title: "AI-powered Apps",
+        description: "(Gemini API, AI assistants, Pose Detection)",
       },
       {
-        title: "SEO Tech Stack",
-        description: "(SSR, Metadata, Structured Data)",
+        title: "Automation",
+        description: "(Workflows, Schedulers, Lead Automation)",
       },
     ],
   },
   {
     title: "Web & Mobile Apps",
     description:
-      "A clunky interface can sink even the best ideas. I craft responsive, pixel perfect web and mobile apps (React Native/Flutter) that users love—bridging design and functionality seamlessly.",
+      "I build responsive, pixel-perfect web apps and mobile-friendly interfaces.",
     items: [
       {
         title: "Cross-Platform Apps",
-        description: "(Single codebase for iOS/Android/Web)",
+        description: "(React Native, PWAs, Offline Mode)",
       },
       {
-        title: "PWAs",
-        description: "(Offline mode, Push Notifications)",
+        title: "E-Commerce Apps",
+        description: "(Stripe, Payments, Inventory, Admin Dashboards)",
       },
       {
-        title: "E-Commerce",
-        description: "(Checkout flows, Payment Gateways, Inventory APIs)",
+        title: "Business Websites",
+        description: "(Landing Pages, SEO, High-Conversion UI/UX)",
       },
     ],
   },
 ];
+
+
+// ⭐ TEJAS — FEATURED PROJECTS
 export const projects = [
   {
     id: 1,
-    name: "Mobile Accessories E-commerce",
+    name: "Gym Management System (AI Fitness Tracker)",
     description:
-      "An online store specializing in phone accessories including cases, chargers, cables, and power banks with MagSafe compatibility.",
-    href: "",
-    image: "/assets/projects/mobile-accessories-store.jpg",
-    bgImage: "/assets/backgrounds/blanket.jpg",
-    frameworks: [
-      { id: 1, name: "React" },
-      { id: 2, name: "Next.js" },
-      { id: 3, name: "Node.js" },
-      { id: 4, name: "MongoDB" },
-      { id: 5, name: "Tailwind CSS" },
-    ],
+      "AI-powered fitness tracking app using MediaPipe + Gemini API with real-time pose detection.",
+    href: "https://github.com/TejasDhamankar/Gym-Management",
+    image: "/assets/projects/gym.png",
+    frameworks: ["Next.js", "Node.js", "Express", "MongoDB", "MediaPipe"],
   },
   {
     id: 2,
-    name: "Plant Shop E-commerce",
+    name: "The Pune Caterers (Live Project)",
     description:
-      "An online store specializing in rare and decorative plants with a clean, user-friendly interface.",
-    href: "",
-    image: "/assets/projects/plant-shop.jpg",
-    bgImage: "/assets/backgrounds/curtains.jpg",
-    frameworks: [
-      { id: 1, name: "React" },
-      { id: 2, name: "Next.js" },
-      { id: 3, name: "Stripe API" },
-      { id: 4, name: "Tailwind CSS" },
-    ],
+      "High-performance production website built using Bun.js backend and Next.js frontend.",
+    href: "https://www.thepunecaterers.com/",   
+    image: "/assets/projects/punecaters.png",
+    frameworks: ["Next.js", "Bun.js", "Tailwind"],
   },
   {
     id: 3,
-    name: "Apple Tech Marketplace",
+    name: "JusticeSupportNow (Live Project)",
     description:
-      "An e-commerce platform for Apple products and accessories with deals and category filtering.",
-    href: "",
-    image: "/assets/projects/apple-tech-store.jpg",
-    bgImage: "/assets/backgrounds/map.jpg",
-    frameworks: [
-      { id: 1, name: "Blazor" },
-      { id: 2, name: "ASP.NET Core" },
-      { id: 3, name: "SQL Server" },
-      { id: 4, name: "Bootstrap" },
-    ],
+      "Lead-generation legal platform with case evaluation logic and Google Ads tracking.",
+    href: "https://justicesupportnow.com/",
+    image: "/assets/projects/justice.png",
+    frameworks: ["Next.js", "Tailwind"],
   },
   {
     id: 4,
-    name: "Electronics & Gadgets Store",
+    name: "Voice2 Smoky — Voice AI App",
     description:
-      "A multi-category online shop featuring electronics, home appliances, and gaming gear with special offers.",
-    href: "",
-    image: "/assets/projects/electronics-store.jpg",
-    bgImage: "/assets/backgrounds/poster.jpg",
-    frameworks: [
-      { id: 1, name: "Vue.js" },
-      { id: 2, name: "Laravel" },
-      { id: 3, name: "MySQL" },
-      { id: 4, name: "SCSS" },
-    ],
+      "Voice-enabled AI interaction app using ElevenLabs, Twilio AI, and Bun.js.",
+    href: "https://voice2-smoky.vercel.app/",
+    image: "/assets/projects/voice2.png",
+    frameworks: ["Next.js", "Bun.js", "Vercel"],
   },
   {
     id: 5,
-    name: "Home Decor Marketplace",
+    name: "Xseize – AI Voice Agent Platform",
     description:
-      "A curated collection of designer home decor items, including furniture and artisan vases.",
-    href: "",
-    image: "/assets/projects/home-decor-store.jpg",
-    bgImage: "/assets/backgrounds/table.jpg",
-    frameworks: [
-      { id: 1, name: "Angular" },
-      { id: 2, name: "Firebase" },
-      { id: 3, name: "GraphQL" },
-      { id: 4, name: "Material UI" },
-    ],
+      "Enterprise-grade AI voice agent dashboard with analytics and CRM integration.",
+    href: "https://www.xseize.com/",
+    image: "/assets/projects/xseize.png",
+    frameworks: ["Next.js"],
   },
   {
     id: 6,
-    name: "Digital Game Store",
+    name: "Cohousy – Real Estate Platform (Live)",
     description:
-      "A gaming platform featuring discounted titles, top sellers, and genre-based browsing.",
-    href: "",
-    image: "/assets/projects/game-store.jpg",
-    bgImage: "/assets/backgrounds/curtains.jpg",
-    frameworks: [
-      { id: 1, name: "Svelte" },
-      { id: 2, name: "Node.js" },
-      { id: 3, name: "MongoDB" },
-      { id: 4, name: "Chakra UI" },
-    ],
+      "A property management and real-estate automation platform with secure email workflows and lead management.",
+    href: "https://cohousy.com/",
+    image: "/assets/projects/cohousy.png",
+    frameworks: ["Next.js", "Node.js", "Nodemailer", "Tailwind"],
+  },
+  {
+    id: 7,
+    name: "Study Notion – E-learning Platform",
+    description:
+      "Full MERN education platform with dashboards, authentication, and course management.",
+    href: "https://github.com/TejasDhamankar/Study-Notion",
+    image: "/assets/projects/StudyNotion.png",
+    frameworks: ["React", "Node.js", "Express", "MongoDB"],
   },
 ];
-export const socials = [
-  { name: "Instagram", href: "https://www.instagram.com/ali.sanatidev/reels/" },
+
+//experience 
+
+// ⭐ TEJAS — EXPERIENCE
+export const experience = [
   {
-    name: "Youtube",
-    href: "https://www.youtube.com/channel/UCZhtUWTtk3bGJiMPN9T4HWA",
+    id: 1,
+    role: "Full-Stack Developer Intern",
+    company: "Backtick Labs",
+    period: "Oct 2025 – Present",
+    stipend:"15k",
+    description:
+      "Building production-grade applications using Next.js, Bun.js, MongoDB, and shadcn UI with performance-focused architecture.",
+    tech: ["Next.js", "Bun.js", "MongoDB", "Tailwind", "shadcn UI", "JWT", "CI/CD"],
   },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/ali-sanati/" },
-  { name: "GitHub", href: "https://github.com/Ali-Sanati" },
+  {
+    id: 2,
+    role: "C++ Programming Intern",
+    company: "Codesoft",
+    period: "Dec 2023 – Jan 2024",
+    stipend:"none",
+    description:
+      "Developed efficient C++ solutions and improved system-level understanding of algorithms and performance.",
+    tech: ["C++", "OOP", "DSA", "Problem Solving"],
+  },
+];
+
+// ⭐ TEJAS — SOCIAL LINKS
+export const socials = [
+  { name: "GitHub", href: "https://github.com/TejasDhamankar" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/tejas-dhamankar-1256322a5" },
+  { name: "Email", href: "mailto:dhamankartejas14@gmail.com" },
+  { name: "Phone", href: "tel:+918262869754" },
 ];

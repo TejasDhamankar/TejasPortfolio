@@ -54,15 +54,18 @@ const Services = () => {
               <p className="text-xl leading-relaxed tracking-widest lg:text-2xl text-white/60 text-pretty">
                 {service.description}
               </p>
-              <div className="flex flex-col gap-2 text-2xl sm:gap-4 lg:text-3xl text-white/80">
+              <div className="flex flex-col gap-2 mt-4 text-2xl sm:gap-4 lg:text-3xl text-white/80">
                 {service.items.map((item, itemIndex) => (
-                  <div key={`item-${index}-${itemIndex}`}>
-                    <h3 className="flex">
-                      <span className="mr-12 text-lg text-white/30">
+                  <div key={`item-${index}-${itemIndex}`} className="p-2 -m-2 transition-all duration-300 rounded-md cursor-pointer group hover:bg-white/5">
+                    <div className="flex">
+                      <span className="mr-12 text-lg text-white/30 transition-colors duration-300 group-hover:text-white">
                         0{itemIndex + 1}
                       </span>
-                      {item.title}
-                    </h3>
+                      <div>
+                        <h3 className="transition-colors duration-300 group-hover:text-white">{item.title}</h3>
+                        <p className="text-lg text-white/60 transition-colors duration-300 group-hover:text-white/80">{item.description}</p>
+                      </div>
+                    </div>
                     {itemIndex < service.items.length - 1 && (
                       <div className="w-full h-px my-2 bg-white/30" />
                     )}
