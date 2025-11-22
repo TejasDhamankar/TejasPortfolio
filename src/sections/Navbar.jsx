@@ -10,24 +10,41 @@ const Navbar = () => {
   const contactRef = useRef(null);
   const topLineRef = useRef(null);
   const bottomLineRef = useRef(null);
+  const overlayRef = useRef(null);
+
   const tl = useRef(null);
   const iconTl = useRef(null);
+
   const [isOpen, setIsOpen] = useState(false);
   const [showBurger, setShowBurger] = useState(true);
+
   useGSAP(() => {
-    gsap.set(navRef.current, { xPercent: 100 });
+    gsap.set(navRef.current, { xPercent: 100, filter: "blur(10px)" });
     gsap.set([linksRef.current, contactRef.current], {
       autoAlpha: 0,
       x: -20,
     });
 
+    // 🔥 BACKDROP Blur + Dim Layer
+    gsap.set(overlayRef.current, { autoAlpha: 0 });
+
     tl.current = gsap
       .timeline({ paused: true })
-      .to(navRef.current, {
-        xPercent: 0,
-        duration: 1,
-        ease: "power3.out",
+      .to(overlayRef.current, {
+        autoAlpha: 1,
+        duration: 0.4,
+        ease: "power2.out",
       })
+      .to(
+        navRef.current,
+        {
+          xPercent: 0,
+          filter: "blur(0px)",
+          duration: 1,
+          ease: "power3.out",
+        },
+        "<"
+      )
       .to(
         linksRef.current,
         {
@@ -37,7 +54,7 @@ const Navbar = () => {
           duration: 0.5,
           ease: "power2.out",
         },
-        "<"
+        "<+0.1"
       )
       .to(
         contactRef.current,
@@ -47,14 +64,15 @@ const Navbar = () => {
           duration: 0.5,
           ease: "power2.out",
         },
-        "<+0.2"
+        "<"
       );
 
+    // 🔥 Burger → Close Animation
     iconTl.current = gsap
       .timeline({ paused: true })
       .to(topLineRef.current, {
         rotate: 45,
-        y: 3.3,
+        y: 4,
         duration: 0.3,
         ease: "power2.inOut",
       })
@@ -62,26 +80,39 @@ const Navbar = () => {
         bottomLineRef.current,
         {
           rotate: -45,
-          y: -3.3,
+          y: -4,
           duration: 0.3,
           ease: "power2.inOut",
         },
         "<"
       );
+
+    // 🔥 Hover animations for nav links
+    linksRef.current.forEach((link) => {
+      const underline = document.createElement("div");
+      underline.className = "absolute bottom-0 left-0 h-[2px] bg-white w-full scale-x-0 origin-left";
+      link.appendChild(underline);
+
+      link.addEventListener("mouseenter", () => {
+        gsap.to(underline, { scaleX: 1, duration: 0.3, ease: "power2.out" });
+        gsap.to(link, { x: 10, duration: 0.3, ease: "power3.out" });
+      });
+
+      link.addEventListener("mouseleave", () => {
+        gsap.to(underline, { scaleX: 0, duration: 0.3, ease: "power2.in" });
+        gsap.to(link, { x: 0, duration: 0.3, ease: "power3.out" });
+      });
+    });
   }, []);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
       setShowBurger(currentScrollY <= lastScrollY || currentScrollY < 10);
-
       lastScrollY = currentScrollY;
     };
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -95,22 +126,33 @@ const Navbar = () => {
     }
     setIsOpen(!isOpen);
   };
+
   return (
     <>
+      {/* 🔥 Background dim overlay */}
+      <div
+        ref={overlayRef}
+        className="fixed inset-0 bg-black/70 backdrop-blur-md pointer-events-none z-40"
+      ></div>
+
       <nav
         ref={navRef}
-        className="fixed z-50 flex flex-col justify-between w-full h-full px-10 uppercase bg-black text-white/80 py-28 gap-y-10 md:w-1/2 md:left-1/2"
+        className="fixed z-50 flex flex-col w-full h-full px-10 uppercase bg-black text-white/80 py-28 gap-y-10 md:w-1/2 md:left-1/2 md:justify-center"
       >
-        <div className="flex flex-col text-5xl gap-y-2 md:text-6xl lg:text-8xl">
+        <div className="flex flex-col text-5xl gap-y-4 md:text-6xl lg:text-7xl relative">
           {["home", "services", "about", "work", "contact"].map(
             (section, index) => (
-              <div key={index} ref={(el) => (linksRef.current[index] = el)}>
+              <div
+                key={index}
+                ref={(el) => (linksRef.current[index] = el)}
+                className="relative cursor-pointer"
+              >
                 <Link
-                  className="transition-all duration-300 cursor-pointer hover:text-white"
+                  className="transition-all duration-300 hover:text-white"
                   to={`${section}`}
                   smooth
                   offset={0}
-                  duration={2000}
+                  duration={1500}
                 >
                   {section}
                 </Link>
@@ -118,24 +160,27 @@ const Navbar = () => {
             )
           )}
         </div>
+
+        {/* CONTACT AREA */}
         <div
           ref={contactRef}
-          className="flex flex-col flex-wrap justify-between gap-8 md:flex-row"
+          className="flex flex-col flex-wrap gap-8 mt-12 md:flex-row md:justify-between"
         >
           <div className="font-light">
             <p className="tracking-wider text-white/50">E-mail</p>
-            <p className="text-xl tracking-widest lowercase text-pretty">
-              JohnDoe@gmail.com
+            <p className="text-lg tracking-widest lowercase md:text-xl">
+              dhamankartejas14@gmail.com
             </p>
           </div>
+
           <div className="font-light">
             <p className="tracking-wider text-white/50">Social Media</p>
-            <div className="flex flex-col flex-wrap md:flex-row gap-x-2">
+            <div className="flex flex-wrap gap-x-4">
               {socials.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
-                  className="text-sm leading-loose tracking-widest uppercase hover:text-white transition-colors duration-300"
+                  className="relative text-sm leading-loose tracking-widest uppercase hover:text-white transition-colors duration-300"
                 >
                   {"{ "}
                   {social.name}
@@ -146,8 +191,10 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+
+      {/* BURGER BUTTON */}
       <div
-        className="fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-14 h-14 md:w-20 md:h-20 top-4 right-10"
+        className="fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-14 h-14 md:w-20 md:h-20 top-4 right-10 shadow-xl shadow-black/40"
         onClick={toggleMenu}
         style={
           showBurger

@@ -87,7 +87,7 @@ export const projects = [
     name: "Gym Management System (AI Fitness Tracker)",
     description:
       "AI-powered fitness tracking app using MediaPipe + Gemini API with real-time pose detection.",
-    href: "https://github.com/TejasDhamankar/Gym-Management",
+    href: "hhttps://github.com/TejasDhamankar/Interview_prep_ai",
     image: "/assets/projects/gym.png",
     frameworks: ["Next.js", "Node.js", "Express", "MongoDB", "MediaPipe"],
   },
