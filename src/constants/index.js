@@ -156,7 +156,7 @@ export const experience = [
     role: "Full-Stack Developer Intern",
     company: "Backtick Labs",
     period: "Oct 2025 – Present",
-    stipend:"15k",
+    salary:"3+LPA",
     description:
       "Building production-grade applications using Next.js, Bun.js, MongoDB, and shadcn UI with performance-focused architecture.",
     tech: ["Next.js", "Bun.js", "MongoDB", "Tailwind", "shadcn UI", "JWT", "CI/CD"],
